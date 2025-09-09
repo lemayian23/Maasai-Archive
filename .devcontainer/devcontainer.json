@@ -1,32 +1,15 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-  "features": {
-    "ghcr.io/devcontainers/features/java:1": {
-      "version": "17",
-      "jdkDistro": "temurin"
-    },
-    "ghcr.io/devcontainers/features/android-environment:1": {
-      "versions": "34.0.0",
-      "cmakeVersion": "3.22.1",
-      "ndkVersion": "23.1.7779620"
-    }
-  },
+  "name": "Android Development",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine",
+  "features": {},
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-vscode.vscode-gradle",
         "naco-siren.gradle-language",
-        "vscjava.vscode-java-pack",
-        "visualstudioexptteam.vscodeintellicode",
-        "ms-vscode.cpptools"
+        "vscjava.vscode-java-pack"
       ]
     }
   },
-  "forwardPorts": [8080],
-  "portsAttributes": {
-    "8080": {
-      "label": "Android Emulator",
-      "requireLocalHost": true
-    }
-  }
+  "postCreateCommand": "apk update && apk add openjdk17 wget unzip && wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip && unzip commandlinetools-linux-9477386_latest.zip -d Android/Sdk/cmdline-tools && mv Android/Sdk/cmdline-tools/cmdline-tools Android/Sdk/cmdline-tools/latest"
 }
