@@ -1,0 +1,32 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "jdkDistro": "temurin"
+    },
+    "ghcr.io/devcontainers/features/android-environment:1": {
+      "versions": "34.0.0",
+      "cmakeVersion": "3.22.1",
+      "ndkVersion": "23.1.7779620"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-gradle",
+        "naco-siren.gradle-language",
+        "vscjava.vscode-java-pack",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.cpptools"
+      ]
+    }
+  },
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Android Emulator",
+      "requireLocalHost": true
+    }
+  }
+}
